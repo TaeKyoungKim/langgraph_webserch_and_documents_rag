@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.env
+.venv
+venv/
+ENV/
+env/
+.env/
+
+# Project specific
+my_chroma_db/
+.chroma/
+.vscode/
+.idea/
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/secrets.toml
