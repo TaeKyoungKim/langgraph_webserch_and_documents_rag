@@ -10,6 +10,7 @@
 - 질문 최적화 재작성
 - 소스 인용이 포함된 답변 생성
 - 한국어 및 영어 지원
+- 다양한 LLM 지원 (Gemini, Groq/Llama)
 
 ## 설치 방법
 
@@ -27,10 +28,12 @@ pip install -r requirements.txt
 # Windows
 set GOOGLE_API_KEY=your_google_api_key
 set TAVILY_API_KEY=your_tavily_api_key
+set GROQ_API_KEY=your_groq_api_key
 
 # Linux/Mac
 export GOOGLE_API_KEY=your_google_api_key
 export TAVILY_API_KEY=your_tavily_api_key
+export GROQ_API_KEY=your_groq_api_key
 ```
 
 또는 코드에서 직접 설정 (권장하지 않음):
@@ -38,6 +41,7 @@ export TAVILY_API_KEY=your_tavily_api_key
 import os
 os.environ['GOOGLE_API_KEY'] = "your_google_api_key"
 os.environ['TAVILY_API_KEY'] = "your_tavily_api_key"
+os.environ['GROQ_API_KEY'] = "your_groq_api_key"
 ```
 
 ## 사용 방법
@@ -77,6 +81,20 @@ python main.py --cli
 
 그러면 질문을 입력하라는 메시지가 표시됩니다.
 
+### 예제 스크립트
+
+간단한 예제를 실행하려면:
+
+```bash
+python example.py "질문을 여기에 입력하세요"
+```
+
+또는 대화형 모드:
+
+```bash
+python example.py
+```
+
 ## 시스템 구성
 
 애플리케이션은 다음과 같은 주요 컴포넌트로 구성됩니다:
@@ -86,6 +104,7 @@ python main.py --cli
 3. **문서 관련성 평가**: 검색된 문서의 관련성 판단
 4. **웹 검색**: Tavily를 사용한 실시간 웹 검색
 5. **답변 생성**: 관련 정보를 사용하여 정보가 풍부한 답변 생성
+6. **다중 LLM**: Gemini와 Groq(Llama) 모델 지원
 
 ## 워크플로우
 
@@ -101,3 +120,9 @@ python main.py --cli
 - `improved_web_search.py`: 주요 RAG 및 웹 검색 기능 구현
 - `streamlit_app.py`: Streamlit 웹 인터페이스
 - `main.py`: 명령줄 및 웹 인터페이스 실행 옵션
+- `example.py`: 간단한 사용 예제
+- `PROJECT_DESCRIPTION.md`: 프로젝트에 대한 상세한 설명과 기술적 내용
+
+## 상세 문서
+
+프로젝트의 더 자세한 설명은 [PROJECT_DESCRIPTION.md](PROJECT_DESCRIPTION.md) 파일을 참조하세요. 이 문서에는 시스템 아키텍처, 세부 구현 사항, 확장 가능성 및 제한 사항에 대한 정보가 포함되어 있습니다.
